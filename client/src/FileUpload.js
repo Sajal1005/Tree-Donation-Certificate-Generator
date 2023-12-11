@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './FileUpload.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FileUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -31,15 +33,15 @@ const FileUpload = () => {
 
         if (response.status === 200) {
           setUploadStatus('File uploaded successfully!');
-          alert('File uploaded successfully!');
+          toast.success('File uploaded successfully!');
         }
       } catch (error) {
         console.error('Error uploading file:', error);
         setUploadStatus('Upload');
-        alert('An error occurred while uploading the file.');
+        toast.error('An error occurred while uploading the file.');
       }
     } else {
-      alert('Please choose an Excel file to upload.');
+      toast.error('Please choose an Excel file to upload.');
     }
   };
 
