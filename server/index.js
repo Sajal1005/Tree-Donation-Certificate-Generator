@@ -8,13 +8,24 @@ const User = require('./model');
 const api2pdf = require('api2pdf');
 const nodemailer = require('nodemailer');
 const ejs = require('ejs');
+const dotenv = require('dotenv');
 
+
+
+const PORT = process.env.PORT || 3000;
+const mongoURI = process.env.MONGO_URI;
+const emailSender = process.env.EMAIL_SENDER;
+const emailSenderPassword = process.env.EMAIL_SENDER_PASSWORD;
+const api2pdfApiKey = process.env.API2PDF_API_KEY;
+
+const a2pClient = new api2pdf(api2pdfApiKey);
 
 const PORT = 3000;
 const mongoURI = 'mongodb+srv://nandasajal208:NMUPGW5aycc266Wc@cluster0.uhjgxqh.mongodb.net/?retryWrites=true&w=majority';
 const emailSender = 'sajal1232.be21@chitkara.edu.in'; 
 const emailSenderPassword = 'Sajal123456789%'; 
 const a2pClient = new api2pdf('88036ac0-8e6c-4161-9f17-7b4c38a895e9');
+dotenv.config();
 app.use(express.json());
 app.use(cors());
 app.set('view engine', 'ejs');
