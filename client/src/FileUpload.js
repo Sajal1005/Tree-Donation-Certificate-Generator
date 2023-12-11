@@ -25,7 +25,7 @@ const FileUpload = () => {
       formData.append('file', selectedFile);
 
       try {
-        const response = await axios.post('http://localhost:3000/upload', formData, {
+        const response = await axios.post('https://tree-donation-certificate-generator.onrender.com/upload', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
 
