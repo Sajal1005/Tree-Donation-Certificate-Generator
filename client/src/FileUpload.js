@@ -38,7 +38,7 @@ const FileUpload = () => {
       } catch (error) {
         console.error('Error uploading file:', error);
         setUploadStatus('Upload');
-        toast.error('An error occurred while uploading the file.');
+        toast.error(`Duplicate or identical data found in the database.`);
       }
     } else {
       toast.error('Please choose an Excel file to upload.');
@@ -47,6 +47,7 @@ const FileUpload = () => {
 
   return (
     <div className="container">
+    <ToastContainer />
       <h1>Tree Donation Certificate Generator</h1>
       <div className="label-container">
         <label htmlFor="file" className="file-label">
