@@ -50,7 +50,12 @@ const generateCertificate = async (user) => {
             from: emailSender,
             to: user.email,
             subject: '🌳 Your Tree-tastic Certification Has Arrived! 🌿',
-            text: `Hey ${user.name}! 🌟\n\nHats off to you for being an eco-hero! 🌍 Your generosity is like sunshine for our planet. 🌞\n\nDrumroll, please... 🥁 Attached is your dazzling Tree Donation Certification! 🎉 Your $${user.amount} donation for planting ${user.noOfTrees} trees is a monumental contribution to our green revolution. 🌱\n\nReady to showcase your green thumb? 🌳 Click the link below to download your certificate and let the world know about your fantastic impact! 💚\n\nDownload Your Certificate: ${pdfUrl}\n\nKeep rocking the green vibes! 🌿\n\nCheers,\nThe Tree Tribe 🌲`,
+            text: `Hey ${user.name}! 🌟\n\nHats off to you for being an eco-hero! 🌍 Your generosity is like sunshine for our planet. 🌞\n\nDrumroll, please... 🥁 We're thrilled to share your dazzling Tree Donation Certification! 🎉 Your $${user.amount} donation for planting ${user.noOfTrees} trees is a monumental contribution to our green revolution. 🌱\n\nReady to showcase your green thumb? 🌳 The certificate is attached to this email as a PDF file. Simply open the attachment to view and download your certificate. Keep rocking the green vibes! 🌿\n\nCheers,\nThe Tree Tribe 🌲`,
+            attachments: [{
+                filename: pdfFileName,
+                path: pdfUrl,
+                contentType: 'application/pdf',
+            }],
         };
         
 
